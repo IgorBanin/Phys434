@@ -1,0 +1,35 @@
+image: gradle:jdk8
+
+before_script:
+  - wget -q https://courses.cs.washington.edu/courses/cse373/19wi/files/homework/scripts/hw0/build.gradle
+
+stages:
+  - compile
+  - test
+
+
+Compile:
+  stage: compile
+  script:
+    - wget -q https://courses.cs.washington.edu/courses/cse373/19wi/files/homework/scripts/compile.sh
+    - sh compile.sh
+  tags:
+    - compile
+
+
+StyleCheck:
+  stage: test
+  script:
+    - wget -q https://courses.cs.washington.edu/courses/cse373/19wi/files/homework/scripts/stylecheck.sh
+    - sh stylecheck.sh
+  tags:
+    - stylecheck
+
+
+DataStructures:
+  stage: test
+  script:
+    - wget -q https://courses.cs.washington.edu/courses/cse373/19wi/files/homework/scripts/hw0/helloworld.sh
+    - sh helloworld.sh
+  tags:
+    - helloworld
